@@ -1,7 +1,7 @@
 import csv
 
 def fileCsv():
-    for i in range (20220404, 20220431):
+    for i in range (20220422, 20220431):
         read_file(i)
 
 def read_file(num):
@@ -21,6 +21,7 @@ def id_buses(data):
     for row in data:
         cantidad = len(buses)
         target = int(row[3][1:])
+        print(target)
         if cantidad == 0:
             buses.append(row[3])
         elif added_bus(0,cantidad,target,buses) == False:
