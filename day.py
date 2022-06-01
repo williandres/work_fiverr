@@ -3,7 +3,7 @@ import csv
 def read_buses():
     with open(f"./telemetria_funcionamiento.csv","r", encoding = "utf-8") as f:
         reader = csv.reader(f)
-        tittles_buses = f.readline().split(",")
+        tittles_buses = next(reader)
         buses = []
         for row in reader:
             buses.append(row)
