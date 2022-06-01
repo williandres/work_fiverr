@@ -3,14 +3,13 @@ import csv
 def read_buses():
     with open(f"./telemetria_funcionamiento.csv","r", encoding = "utf-8") as f:
         reader = csv.reader(f)
-        tittles = f.readline().split(",")
+        tittles_buses = f.readline().split(",")
         buses = []
         for row in reader:
             buses.append(row)
-    buses_day(buses)
+    buses_day(buses,tittles_buses)
 
-def buses_day(buses):
-    tittles_buses = ['Id_Buses']
+def buses_day(buses,tittles_buses):
     for i in range (20220404, 20220431):
         data = []
         try:
@@ -18,12 +17,13 @@ def buses_day(buses):
                 tittles = f.readline().split(",")
                 for line in f:
                     data.append(line.split(","))
-                buses_evaluate(data,buses,i,tittles)
+                buses_evaluate(data,buses,i,tittles_buses)
         except FileNotFoundError:
             pass
 
 def buses_evaluate(data,buses,num,tittles):
-    tittles.append(num)
+    date = str(num)[6:]+"-"+str(num)[4:6]+"-"+str(num)[:4]
+    tittles.append(date)
     for bus in buses:
         correcto = 0
         total = 0
