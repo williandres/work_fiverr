@@ -1,5 +1,4 @@
 import csv
-import dataclasses
 
 def fileCsv():
     for i in range (20220404, 20220431):
