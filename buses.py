@@ -1,7 +1,7 @@
 import csv
 
 def fileCsv(desde,hasta):
-    print("Reiniciando datos del archivo 'telemetria_funcionamiento.csv'")
+    print("Creando o reiniciando datos del archivo 'telemetria_funcionamiento.csv'")
     file = open("./telemetria_funcionamiento.csv", "w")
     file.close()
     print(f'Definiendo los id_buses entre los archivos {desde}_p60.csv y {hasta}_p60.csv')

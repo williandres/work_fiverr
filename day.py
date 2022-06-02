@@ -49,5 +49,5 @@ def write_buses(buses,tittles):
     with open(f"./telemetria_funcionamiento.csv","w", encoding = "utf-8", newline='') as f:
         writer = csv.writer(f)
         writer.writerow(tittles)
-        for i in range(0, len(buses)):
-            writer.writerow(buses[i])
+        for bus in buses:
+            writer.writerow(bus)
