@@ -1,7 +1,11 @@
 import csv
 
-def fileCsv():
-    for i in range (20220404, 20220431):
+def fileCsv(desde,hasta):
+    print("Reiniciando datos del archivo 'telemetria_funcionamiento.csv'")
+    file = open("./telemetria_funcionamiento.csv", "w")
+    file.close()
+    print(f'Definiendo los id_buses entre los archivos {desde}_p60.csv y {hasta}_p60.csv')
+    for i in range (desde, hasta+1):
         read_file(i)
 
 def read_file(num):
@@ -30,6 +34,7 @@ def id_buses(data):
         buses = []
         for row in reader:
             buses.append(row)
+
     for row in data:
         try:
             cantidad = len(buses)
@@ -52,6 +57,7 @@ def id_buses(data):
                             break
         except ValueError:
             pass
+
     return buses
 
 def added_bus(initial, final, target,buses): # Binary Search
