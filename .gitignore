@@ -1,1 +1,5 @@
 **/data
+#For github, the file size is large ... so here is a link to download:
+#https://drive.google.com/drive/folders/1PCxrsJN0kLAQdBnW0_Lg3_H3ngNsjlCw?usp=sharing
+#You could delete the line'**/data' ; and create a dir call 'data';
+#with all files already downloaded in the link into 'data'
