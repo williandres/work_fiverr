@@ -1,7 +1,6 @@
 import subprocess
 import os
 import time
-import time
 from pynput.keyboard import Key, Controller
 
 def install(exe):
