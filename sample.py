@@ -5,7 +5,7 @@ from pynput.keyboard import Key, Controller
 
 def install(exe):
     keyboard = Controller()
-    os.startfile(exe)
+    #os.system(exe)
 
     time.sleep(1)
 
@@ -15,18 +15,21 @@ def install(exe):
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
 
-    time.sleep(5)
+    time.sleep(10)
 
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
 
+    keyboard.press('a')
+    keyboard.release('a')
+
 def run():
-    dir = [ f.path for f in os.scandir('./assets') if f.is_dir() ]
+    time.sleep(10)
+    dir = [ f.path for f in os.scandir('./') if f.is_dir() ]
     for dirs in dir:
         for f in os.listdir(dirs):
             if f[-4:] == '.exe':
-                path = f
-        install(dirs + "/" + path)
+                install(dirs + "/" + f)
 
 
 if __name__ == '__main__':
