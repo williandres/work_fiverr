@@ -6,7 +6,7 @@ def install(exe):
     keyboard = Controller()
     os.startfile(exe)
 
-    time.sleep(1)
+    time.sleep(3)
 
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
@@ -14,7 +14,7 @@ def install(exe):
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
 
-    time.sleep(10)
+    time.sleep(6)
 
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
