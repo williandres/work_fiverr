@@ -14,7 +14,7 @@ def install(exe):
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
 
-    time.sleep(6)
+    time.sleep(8)
 
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
