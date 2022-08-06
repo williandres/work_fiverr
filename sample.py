@@ -21,11 +21,10 @@ def install(exe):
 
 def run():
     path = os.getcwd()
-    dir = [ f.path for f in os.scandir('./') if f.is_dir() ]
-    for dirs in dir:
-        for f in os.listdir(dirs):
-            if f[-4:] == '.exe':
-                install(f'{path}\{dirs[2:]}\{f}')
+    dir = [ f.path for f in os.scandir('./')]
+    for f in dir:
+        if f[-4:] == '.exe':
+            install(f'{path}\{f[2:]}')
 
 if __name__ == '__main__':
     run()
