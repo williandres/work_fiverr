@@ -41,31 +41,32 @@ def arrd(l, old_csv):
 def arrt(l, old_csv):
     l[1] = "Arrendatario"
     l[3] = old_csv[11]
+    l[8] = old_csv[12]
+    if "@" in old_csv[12]:
+        p = 0
+        t = old_csv[12].find("@")
+        for i in range (0, t):
+            if  old_csv[12][t-i]== " " or old_csv[12][t-i]== "," or old_csv[12][t-i]== ":":
+                p = t - i
+                break
+        l[10] = old_csv[12][p+1:]
 
-    p = 0
-    t = old_csv[12].find("@")
-    for i in range (0, t):
-        if  old_csv[12][t-i]== " " or old_csv[12][t-i]== "," or old_csv[12][t-i]== ":":
-            p = t - i
-            break
-    l[10] = old_csv[12][p+1:]
+        m = 0
+        y = m
+        c = p
+        tokens = 0
+        for i in range(0, p):
+            if old_csv[12][i] in nums or old_csv[12][i] in exe:
+                tokens += 1
+            if old_csv[12][i] not in nums and old_csv[12][i] not in exe:
+                tokens = 0
+            elif tokens == 1:
+                m = i
+            elif tokens > 5:
+                y = m
+                c = i
 
-    m = 0
-    y = m
-    c = p
-    tokens = 0
-    for i in range(0, p):
-        if old_csv[12][i] in nums or old_csv[12][i] in exe:
-            tokens += 1
-        if old_csv[12][i] not in nums and old_csv[12][i] not in exe:
-            tokens = 0
-        elif tokens == 1:
-            m = i
-        elif tokens > 5:
-            y = m
-            c = i
-
-    l[8] = old_csv[12][y:c+1]
+        l[8] = old_csv[12][y:c+1]
 
     return l
 def fia(l, old_csv):
@@ -148,7 +149,7 @@ def new_csv(f):
             'INMOBILIARIA',
             'COMENTARIOS',
             'VALOR PAGARE',
-            'KTOF',
+            'KTOF'
             ]]
     for line in f:
         #Arrendador
