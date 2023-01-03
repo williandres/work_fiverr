@@ -1,6 +1,6 @@
 # My projects
 
-- Auto install: auto install hundreds of .ecxe files.
-- excel: clean, modify data from a csv file.
-- recreative blockchain: imitate the logic process of the blockchain.
-- testtelemtria: a task for a job interview.
+- Auto install: auto install a hundreds of setup files.
+- Excel: clean and modify data from a csv file.
+- Recreative blockchain: imitate the logic process of the blockchain.
+- Test telemetria: a task for a job interview.
