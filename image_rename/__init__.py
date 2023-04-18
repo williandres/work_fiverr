@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+import pandas as pd
 
 # loop to open images and add an add metadata to each image
 def main():
@@ -11,5 +12,10 @@ def main():
             img.info["m"] = "z"
             img.save(f"sources/output/{file}")
 
+def read_excel():
+    df = pd.read_excel("sources/11k_metadata.xlsx")
+    print(pd.head(df))
+
 if __name__ == '__main__':
-    main()
+    #main()
+    read_excel()
