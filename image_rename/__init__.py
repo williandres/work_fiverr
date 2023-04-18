@@ -3,14 +3,13 @@ from PIL import Image
 
 # loop to open images and add an add metadata to each image
 def main():
-    for archivo in os.listdir("sources/img/"):
-        if archivo.endswith(".jpg") or archivo.endswith(".webp") or archivo.endswith(".jpeg") or archivo.endswith(".gif") or archivo.endswith(".svg") or archivo.endswith(".bmp") or archivo.endswith(".tif") or archivo.endswith(".tiff") or archivo.endswith(".jfif") or archivo.endswith(".pjpeg") or archivo.endswith(".pjp") or archivo.endswith(".png"):
-            ruta_archivo = os.path.join("sources/img/", archivo)
-            imagen = Image.open(ruta_archivo)
-            imagen.info["x"] = "y"
-            imagen.info["af"] = "pada"
-            imagen.save(f"sources/output/ijue.webp")
-
+    for file in os.listdir("sources/img/"):
+        if file.endswith(".jpg") or file.endswith(".webp") or file.endswith(".jpeg") or file.endswith(".gif") or file.endswith(".svg") or file.endswith(".bmp") or file.endswith(".tif") or file.endswith(".tiff") or file.endswith(".jfif") or file.endswith(".pjpeg") or file.endswith(".pjp") or file.endswith(".png"):
+            path_file = os.path.join("sources/img/", file)
+            img = Image.open(path_file)
+            img.info["x"] = "y"
+            img.info["m"] = "z"
+            img.save(f"sources/output/{file}")
 
 if __name__ == '__main__':
     main()
