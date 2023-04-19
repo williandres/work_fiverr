@@ -1,6 +1,5 @@
 import os
 from PIL import Image
-from exif import Image as loco
 import pandas as pd
 
 # Define the source and output directories
@@ -19,7 +18,7 @@ def main():
             image.info["Software"] = "x=y" 
 
             # Save the image with the new metadata field to the output directory
-            output_path = os.path.join(output_dir, "filename.png")
+            output_path = os.path.join(output_dir, filename.split('.')[0] + '.jpeg')
             image.save(output_path)
 
             print(f"Metadata del objeto:")
@@ -29,6 +28,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-    print(f"Metadata de sources/output/filename.png:")
-    image = Image.open("sources/output/filename.png")
+    print(f"Metadata de sources/output/image (1).jpeg")
+    image = Image.open("sources/output/image (1).jpeg")
     print(image.info)
