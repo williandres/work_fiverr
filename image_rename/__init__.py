@@ -13,7 +13,7 @@ def main():
             # Open the image and add the "x" metadata field with value "y"
             filepath = os.path.join(source_dir, filename)
             image = Image.open(filepath)
-            image.format = "PNG" 
+
 
             #Add the metadata field to the image
             image.info["Software"] = "x=y" 
