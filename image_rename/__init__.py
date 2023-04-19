@@ -1,21 +1,34 @@
 import os
 from PIL import Image
+from exif import Image as loco
 import pandas as pd
 
-# loop to open images and add an add metadata to each image
-def main():
-    for file in os.listdir("sources/img/"):
-        if file.endswith(".jpg") or file.endswith(".webp") or file.endswith(".jpeg") or file.endswith(".gif") or file.endswith(".svg") or file.endswith(".bmp") or file.endswith(".tif") or file.endswith(".tiff") or file.endswith(".jfif") or file.endswith(".pjpeg") or file.endswith(".pjp") or file.endswith(".png"):
-            path_file = os.path.join("sources/img/", file)
-            img = Image.open(path_file)
-            img.info["x"] = "y"
-            img.info["m"] = "z"
-            img.save(f"sources/output/{file}")
+# Define the source and output directories
+source_dir = "sources/img/test"
+output_dir = "sources/output"
 
-def read_excel():
-    df = pd.read_excel("sources/11k_metadata.xlsx")
-    print(pd.head(df))
+def main():
+    for filename in os.listdir(source_dir):
+        if filename.endswith(".jpg") or filename.endswith(".jpeg") or filename.endswith(".png") or filename.endswith(".webp"):
+            # Open the image and add the "x" metadata field with value "y"
+            filepath = os.path.join(source_dir, filename)
+            image = Image.open(filepath)
+            image.format = "PNG" 
+
+            #Add the metadata field to the image
+            image.info["Software"] = "x=y" 
+
+            # Save the image with the new metadata field to the output directory
+            output_path = os.path.join(output_dir, "filename.png")
+            image.save(output_path)
+
+            print(f"Metadata del objeto:")
+            print(image.info)
+
+
 
 if __name__ == '__main__':
-    #main()
-    read_excel()
+    main()
+    print(f"Metadata de sources/output/filename.png:")
+    image = Image.open("sources/output/filename.png")
+    print(image.info)
