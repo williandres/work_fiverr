@@ -92,7 +92,7 @@ def evaluate_folder(name):
     elif name[1] == 'L':
         true_name = name + '/' 
     elif name[0] == 's':
-        true_name = "sweggers/" + name + '/'   
+        true_name = "sweggers/" + name + '/'  
     return true_name
 
 def check(filename):
@@ -102,8 +102,5 @@ def check(filename):
 if __name__ == '__main__':
     #test()
     #read_excel()
-    #check("sources/output/11k Collection/cg11 (0-4000)/01568.png")
-    write_file(read_excel())
-
-
-    
+    #write_file(read_excel())
+    check("sources/img/00065.png")
