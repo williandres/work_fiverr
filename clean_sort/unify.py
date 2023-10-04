@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Directorio que contiene los archivos CSV traducidos
-translated_directory = 'translated'
+translated_directory = 'trasnlated'
 
 # Obtener la lista de archivos CSV en el directorio
 csv_files = [filename for filename in os.listdir(translated_directory) if filename.endswith('.csv')]
