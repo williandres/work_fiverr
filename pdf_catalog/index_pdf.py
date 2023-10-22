@@ -30,7 +30,16 @@ def title():
 
     c.circle(265, h - 150, 2)
 
-def border():
+def border(n):
+    # Dibujar el rectángulo con relleno detrás de las letras
+    rect_x = 176
+    rect_y = h - 240.3
+    rect_width = 260
+    rect_height = 25.7
+    c.setFillColor(white)
+    c.setStrokeColor(HexColor("#004E70"))
+    c.rect(rect_x, rect_y, rect_width, rect_height, fill=1)
+
     # Agregar la imagen en el extremo derecho
     image_path = "sources/assets/border.png"
     image_width = 35  # Ancho de la imagen en puntos
@@ -38,6 +47,10 @@ def border():
     image_x = w - image_width  # Posición X de la imagen en el extremo derecho
     image_y = 0 # Posición Y de la imagen
     c.drawImage(image_path, image_x, image_y, width=image_width, height=image_height)
+    c.setFont("Courier", 12)
+    c.setFillColor(black)
+    c.drawString(480, 20, f'{n}')
+
 
 def catalog_header():
     # Dibujar el rectángulo con relleno detrás de las letras
@@ -49,37 +62,27 @@ def catalog_header():
     c.setStrokeColor("transparent")
     c.rect(rect_x, rect_y, rect_width, rect_height, fill=1)
 
-    # Dibujar el rectángulo con relleno detrás de las letras
-    rect_x = 177
-    rect_y = h - 240.5
-    rect_width = 260
-    rect_height = 26
-    c.setFillColor(white)
-    c.setStrokeColor(HexColor("#004E70"))
-    c.rect(rect_x, rect_y, rect_width, rect_height, fill=1)
 
     #Columnas
     c.setFillColor(black)
     c.setFont("Helvetica-Bold", 18)
     c.drawString(96, h-234, "Pag")
-    c.setFont("Helvetica", 18)
+    c.setFont("Helvetica-Bold", 18)
     c.drawString(273, h-234, "Seccion")
 
 def catalog():
-    items = {'#-1':'Sample 1','#-2':'Sample 2','#-3':'Sample 3','#-4':'Sample 4'}
+    items = {'02-#1':'Sample 1','##-#2':'Sample 2','##-#3':'Sample 3','##-#4':'Sample 4'}
     hor = 460
     for i in items:
-        c.setFont("Helvetica", 14)
+        c.setFont("Helvetica", 12)
         c.drawString(102, hor, i)
-        c.drawString(260, hor, items[i])
+        c.drawString(205, hor, items[i])
         hor -= 28
 
 if __name__ == '__main__':
     title()
-    border()
+    border(2)
     catalog_header()
     catalog()
     c.showPage()
     c.save()
-
-
