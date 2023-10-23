@@ -18,6 +18,7 @@ if __name__ == '__main__':
     catalog_pdf.main(excel.main())
     index_pdf.main(excel.main())
     merge()
+    print("PDF construido")
 
 
 
