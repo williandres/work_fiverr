@@ -32,9 +32,9 @@ def title():
 
 def border(n):
     # Dibujar el rectángulo con relleno detrás de las letras
-    rect_x = 146
+    rect_x = 126
     rect_y = h - 200.3
-    rect_width = 335
+    rect_width = 355
     rect_height = 25.7
     c.setFillColor(white)
     c.setStrokeColor(HexColor("#004E70"))
@@ -56,7 +56,7 @@ def catalog_header():
     # Dibujar el rectángulo con relleno detrás de las letras
     rect_x = 50
     rect_y = h - 201
-    rect_width = 93
+    rect_width = 70
     rect_height = 27
     c.setFillColor(HexColor("#38C3FF"))
     c.setStrokeColor("transparent")
@@ -64,11 +64,12 @@ def catalog_header():
 
 
     #Columnas
+    c.setFillColor(white)
+    c.setFont("Helvetica-Bold", 18)
+    c.drawString(67, h-194, "Pag")
     c.setFillColor(black)
     c.setFont("Helvetica-Bold", 18)
-    c.drawString(80, h-194, "Pag")
-    c.setFont("Helvetica-Bold", 18)
-    c.drawString(273, h-194, "Seccion")
+    c.drawString(245, h-194, "S e c c i o n")
 
 def catalog(datas):
     group = datas[1]
@@ -88,8 +89,8 @@ def catalog(datas):
     hor = 520
     for i in dicts:
         c.setFont("Helvetica", 9)
-        c.drawString(80, hor, i)
-        c.drawString(160, hor, dicts[i])
+        c.drawString(65, hor, i)
+        c.drawString(140, hor, dicts[i])
         hor -= 10
 
 def main(items):
