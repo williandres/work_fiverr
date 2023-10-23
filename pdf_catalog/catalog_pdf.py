@@ -32,9 +32,64 @@ def template(n, tittle):
     c.setFillColor(white)
     c.drawString(15, h-100, f'{tittle}')
 
+def content(data_page):
+    ver = 475
+    hor = 40
+    n = 0
+    for i in data_page:
+        n += 1
+        image_path = "sources/images/" + str(i.iloc[-1])
+        try:
+            c.drawImage(image_path, hor, ver, width=110, height=110)
+        except:
+            pass
+        descripcion(i, ver, hor)
+        hor += 150
+        if n == 3:
+            hor = 40
+            ver -= 180
+            n = 0
+
+def dividir_string(texto, max_caracteres_por_linea):
+    palabras = texto.split()
+    lineas = []
+    linea_actual = palabras[0]
+
+    for palabra in palabras[1:]:
+        if len(linea_actual) + 1 + len(palabra) <= max_caracteres_por_linea:
+            linea_actual += " " + palabra
+        else:
+            lineas.append(linea_actual)
+            linea_actual = palabra
+
+    if linea_actual:
+        lineas.append(linea_actual)
+
+    return "\n".join(lineas)
+
+def descripcion(data,ver,hor):
+    c.setFillColor(black)
+    #Codigo - Referencia
+    c.setFont("Helvetica-Bold", 9)
+    c.drawString(hor + 25, ver - 10, f'{data.iloc[0]} ({data.iloc[1]})')
+
+    #Nombre
+    z = 20
+    c.setFont("Helvetica", 8)
+    for i in dividir_string(data.iloc[2],23).split("\n"):
+        c.drawString(hor + 1, ver - z, f'{i}')
+        z += 10
+
+    #Presentacion - Activo
+    c.setFont("Helvetica-Bold", 8)
+    c.drawString(hor + 20, ver - z, f'{data.iloc[3]}')
+    c.setFillColor(HexColor("#004E70"))
+    c.setFont("Helvetica-Bold", 9)
+    c.drawString(hor + 60, ver - z, f'{data.iloc[7]}')
 
 def page(paja, waves, tittle):
     template(waves, tittle)
+    content(paja)
     c.showPage()
 
 def pages(items):
