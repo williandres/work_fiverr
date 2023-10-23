@@ -32,9 +32,9 @@ def title():
 
 def border(n):
     # Dibujar el rectángulo con relleno detrás de las letras
-    rect_x = 176
-    rect_y = h - 240.3
-    rect_width = 260
+    rect_x = 146
+    rect_y = h - 200.3
+    rect_width = 335
     rect_height = 25.7
     c.setFillColor(white)
     c.setStrokeColor(HexColor("#004E70"))
@@ -55,8 +55,8 @@ def border(n):
 def catalog_header():
     # Dibujar el rectángulo con relleno detrás de las letras
     rect_x = 50
-    rect_y = h - 241
-    rect_width = 127
+    rect_y = h - 201
+    rect_width = 93
     rect_height = 27
     c.setFillColor(HexColor("#38C3FF"))
     c.setStrokeColor("transparent")
@@ -66,23 +66,36 @@ def catalog_header():
     #Columnas
     c.setFillColor(black)
     c.setFont("Helvetica-Bold", 18)
-    c.drawString(96, h-234, "Pag")
+    c.drawString(80, h-194, "Pag")
     c.setFont("Helvetica-Bold", 18)
-    c.drawString(273, h-234, "Seccion")
+    c.drawString(273, h-194, "Seccion")
 
-def catalog():
-    items = {'02-#1':'Sample 1','##-#2':'Sample 2','##-#3':'Sample 3','##-#4':'Sample 4'}
-    hor = 460
-    for i in items:
-        c.setFont("Helvetica", 12)
-        c.drawString(102, hor, i)
-        c.drawString(205, hor, items[i])
-        hor -= 28
+def catalog(datas):
+    group = datas[1]
+    init = 3
+    dicts = {}
+    for indice, fila in group.iterrows():
+        if fila.iloc[2]%9 != 0 and fila.iloc[2] < 9:
+            final = init
+        if fila.iloc[2]%9 == 0:
+            final = init + (fila.iloc[2]//9) - 1
+        else:
+            final = init + (fila.iloc[2]//9)
+        value = f'{fila.iloc[0]}: {fila.iloc[1]}'
+        key = f'{init} - {final}'
+        init = final + 1
+        dicts[key] = value
+    hor = 520
+    for i in dicts:
+        c.setFont("Helvetica", 9)
+        c.drawString(80, hor, i)
+        c.drawString(160, hor, dicts[i])
+        hor -= 10
 
-if __name__ == '__main__':
+def main(items):
     title()
     border(2)
     catalog_header()
-    catalog()
+    catalog(items)
     c.showPage()
     c.save()

@@ -1,3 +1,10 @@
+numpy==1.26.1
+pandas==2.1.1
 Pillow==10.1.0
 PyPDF2==3.0.1
+python-dateutil==2.8.2
+pytz==2023.3.post1
 reportlab==4.0.6
+six==1.16.0
+tzdata==2023.3
+xlrd==2.0.1
