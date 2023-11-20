@@ -2,7 +2,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import lightgrey, black, white
 from reportlab.lib.colors import HexColor
-
+import math
 
 # Establecer el tamaño de página personalizado
 custom_page_size = (197*(2.8345323741), 259*(2.8345323741))
@@ -71,9 +71,9 @@ def catalog_header():
     c.setFont("Helvetica-Bold", 18)
     c.drawString(245, h-194, "S e c c i o n")
 
-def catalog(datas):
+def catalog(datas,x):
     group = datas[1]
-    init = 3
+    init = x + math.ceil(len(group)/49)
     dicts = {}
     for indice, fila in group.iterrows():
         if fila.iloc[2]%9 != 0 and fila.iloc[2] < 9:
@@ -88,15 +88,23 @@ def catalog(datas):
         dicts[key] = value
     hor = 520
     for i in dicts:
-        c.setFont("Helvetica", 9)
-        c.drawString(65, hor, i)
-        c.drawString(140, hor, dicts[i])
-        hor -= 10
+        if hor > 30:
+            c.setFont("Helvetica", 9)
+            c.drawString(65, hor, i)
+            c.drawString(140, hor, dicts[i])
+            hor -= 10
+        else:
+            c.showPage()
+            x += 1
+            template(x)
+            hor = 520
+
+def template(n):
+    title()
+    border(n)
+    catalog_header()
 
 def main(items):
-    title()
-    border(2)
-    catalog_header()
-    catalog(items)
-    c.showPage()
+    template(2)
+    catalog(items, 2)
     c.save()

@@ -2,6 +2,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import lightgrey, black, white
 from reportlab.lib.colors import HexColor
+import math
 
 # Establecer el tamaño de página personalizado
 custom_page_size = (197*(2.8345323741), 259*(2.8345323741))
@@ -96,7 +97,7 @@ def pages(items):
     data = items[0]
     paja = []
     num = 0
-    waves = 3
+    waves = 2 + math.ceil(len(items[1])/49)
     index = 0
     seccion = int(items[1].iloc[index, 2])
     for indice, fila in data.iterrows():
