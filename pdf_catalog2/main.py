@@ -2,7 +2,7 @@ import PyPDF2
 import index_pdf, catalog_pdf, excel
 
 def merge():
-    pdf_files = ["sources/assets/portada.pdf", "sources/assets/index.pdf", "sources/assets/catalog.pdf", "sources/assets/portada.pdf"]
+    pdf_files = ["sources/assets/portada.pdf", "sources/assets/index.pdf", "sources/assets/catalog.pdf", "sources/assets/contraportada.pdf"]
     pdf_writer = PyPDF2.PdfWriter()
 
     for pdf_file in pdf_files:
