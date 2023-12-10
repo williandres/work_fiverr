@@ -29,9 +29,34 @@ def template(n, tittle):
     image_y = h-110 # Posición Y de la imagen
     c.drawImage(image_path, image_x, image_y, width=image_width, height=image_height)
 
-    c.setFont("Helvetica-Bold", 14)
+    tt, st = tittle.split(': ')
+    c.setFont("Helvetica-Bold", 20)
     c.setFillColor(white)
-    c.drawString(15, h-100, f'{tittle}')
+    c.drawString(15, h-25, f'{tt}')
+    c.setFont("Helvetica", 14)
+    z = 20
+    for i in dividir_texto(st, 32).split('?'):
+        c.drawString(15, h-25-z, f'{i}')
+        z += 14
+
+def dividir_texto(texto, longitud):
+    palabras = texto.split()
+    lineas = []
+    linea_actual = palabras[0]
+
+    for palabra in palabras[1:]:
+        if len(linea_actual) + len(palabra) + 1 <= longitud:
+            # Agregar la palabra a la línea actual si no supera la longitud límite
+            linea_actual += " " + palabra
+        else:
+            # Agregar la línea actual y comenzar una nueva línea con la palabra actual
+            lineas.append(linea_actual)
+            linea_actual = palabra
+
+    # Agregar la última línea
+    lineas.append(linea_actual)
+
+    return '?'.join(lineas)
 
 def content(data_page):
     ver = 475
@@ -39,7 +64,7 @@ def content(data_page):
     n = 0
     for i in data_page:
         n += 1
-        image_path = "sources/images/" + str(i.iloc[-1])
+        image_path = "sources/images/" + str(i.iloc[8])
         try:
             c.drawImage(image_path, hor, ver, width=110, height=110)
         except:
@@ -81,12 +106,10 @@ def descripcion(data,ver,hor):
         c.drawString(hor + 1, ver - z, f'{i}')
         z += 10
 
-    #Presentacion - Activo
-    c.setFont("Helvetica-Bold", 8)
-    c.drawString(hor + 20, ver - z, f'{data.iloc[3]}')
+    #Marca
     c.setFillColor(HexColor("#004E70"))
     c.setFont("Helvetica-Bold", 9)
-    c.drawString(hor + 60, ver - z, f'{data.iloc[7]}')
+    c.drawString(hor + 34, ver - z, f'{data.iloc[9]}')
 
 def page(paja, waves, tittle):
     template(waves, tittle)
