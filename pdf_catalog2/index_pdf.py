@@ -87,11 +87,37 @@ def catalog(datas,x):
         init = final + 1
         dicts[key] = value
     hor = 520
-    for i in dicts:
+
+    #Creando los titulos y los subtitulos
+    original_dict = dicts
+    new_dict = {}
+    titulos = []
+    for key, value in original_dict.items():
+        left, right = value.split(': ')
+        new_dict[key] = right
+        titulos.append(left)
+    cuentas = {}
+    for elemento in titulos:
+        if elemento in cuentas:
+            cuentas[elemento] += 1
+        else:
+            cuentas[elemento] = 1
+    lista = list(new_dict.items())
+    n = 0
+    for key, value in cuentas.items():
+        titulo = ("", key)
+        lista.insert(n,titulo)
+        n += int(value) + 1
+
+    for i in lista:
         if hor > 30:
             c.setFont("Helvetica", 9)
-            c.drawString(65, hor, i)
-            c.drawString(140, hor, dicts[i])
+            c.drawString(84 - 5*i[0].find("-"), hor, i[0])
+            if i[0] == '':
+                c.setFont("Helvetica-Bold", 9)
+                c.drawString(140, hor, i[1])
+            else:
+                c.drawString(160, hor, '• ' + i[1])
             hor -= 10
         else:
             c.showPage()

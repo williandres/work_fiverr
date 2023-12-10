@@ -8,8 +8,15 @@ def read():
 
     if archivo_excel:
         ruta_completa = os.path.join(carpeta, archivo_excel)
-        data = pd.read_excel(ruta_completa)
-    return data
+        xls = pd.ExcelFile(ruta_completa)
+        data = pd.read_excel(xls, 'Imprimir')
+
+        # Eliminar filas que contienen NaN
+        data = data.dropna()
+        return data
+    else:
+        print("No se encontró un archivo Excel en la carpeta.")
+        return None
 
 def order(dt):
     dt = dt.sort_values(by=["Linea", "Sublineas"])
