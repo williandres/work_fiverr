@@ -40,7 +40,8 @@ def template(n, tittle):
         z += 14
 
 def dividir_texto(texto, longitud):
-    palabras = texto.split()
+    tx = str(texto)
+    palabras = tx.split()
     lineas = []
     linea_actual = palabras[0]
 
@@ -77,7 +78,8 @@ def content(data_page):
             n = 0
 
 def dividir_string(texto, max_caracteres_por_linea):
-    palabras = texto.split()
+    tx = str(texto)
+    palabras = tx.split()
     lineas = []
     linea_actual = palabras[0]
 
