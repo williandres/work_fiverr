@@ -32,11 +32,11 @@ def template(n, tittle):
     tt, st = tittle.split(': ')
     c.setFont("Helvetica-Bold", 20)
     c.setFillColor(white)
-    c.drawString(15, h-25, f'{tt}')
+    c.drawString(15, h-52, f'{tt}')
     c.setFont("Helvetica", 14)
     z = 20
     for i in dividir_texto(st, 32).split('?'):
-        c.drawString(15, h-25-z, f'{i}')
+        c.drawString(15, h-52-z, f'{i}')
         z += 14
 
 def dividir_texto(texto, longitud):
@@ -99,19 +99,20 @@ def descripcion(data,ver,hor):
     c.setFillColor(black)
     #Codigo - Referencia
     c.setFont("Helvetica-Bold", 9)
-    c.drawString(hor + 25, ver - 10, f'{data.iloc[0]} ({data.iloc[1]})')
+    c.drawString(hor + 28, ver - 10, f'{data.iloc[0]} ({data.iloc[1]})')
 
     #Nombre
     z = 20
     c.setFont("Helvetica", 8)
     for i in dividir_string(data.iloc[2],23).split("\n"):
-        c.drawString(hor + 1, ver - z, f'{i}')
+        c.drawString(hor + (56-(len(i)*2)), ver - z, f'{i}')
         z += 10
 
     #Marca
     c.setFillColor(HexColor("#004E70"))
     c.setFont("Helvetica-Bold", 9)
-    c.drawString(hor + 34, ver - z, f'{data.iloc[9]}')
+    c.drawString(hor + 50 - len(data.iloc[9]), ver - z, f'{data.iloc[9]}')
+
 
 def page(paja, waves, tittle):
     template(waves, tittle)
