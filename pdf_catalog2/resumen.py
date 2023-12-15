@@ -74,7 +74,7 @@ def content(objeto,n):
     c.setFillColor(black)
     f = 0
     for i in cp.dividir_texto(titulo,10).split("?"):
-        c.drawString(205, 540-f , f'{i.upper()}')
+        c.drawString((227 + len(i)*3 ) - (len(i)-1)**2, 540-f , f'{i.upper()}')
         f += 20
 
     #Labels

@@ -1,4 +1,6 @@
 import PyPDF2
+import os
+import sys
 
 def insert_pdf_page(n, origin, added):
     origin_pdf = PyPDF2.PdfReader(origin, 'rb')
@@ -22,30 +24,22 @@ def insert_pdf_page(n, origin, added):
 
 
 
-def options():
-    while True:
-        origin = input("Ingrese la dirección del archivo que desea modificar: ")
-        added = input("Ingrese la dirección del archivo que desea añadir: ")
-        n = input("Ingrese el número de la página donde lo desea añadir (se agruegara el contenido en la siguiente pagina): ")
-        if n.isdigit():
-            insert_pdf_page(int(n), origin, added)
-            break
-        else:
-            print("Por favor, ingrese un número válido.")
-
 def main():
-    while True:
-        n = input("Ingrese el número de la página donde lo desea añadir (se agruegara el contenido en la siguiente pagina): ")
-        if n.isdigit():
-            insert_pdf_page(int(n), 'sources/catalogo_productos.pdf', 'sources/assets/rest.pdf')
-            break
-        else:
-            if n.lower() == 'god':
-                options()
+    carpeta = "sources/assets/rest"
+    for nombre_archivo in os.listdir(carpeta):
+        ruta_archivo = os.path.join(carpeta, nombre_archivo)
+        while True:
+            n = input(f'Ingrese el número de la página donde lo desea añadir [{nombre_archivo}], o "sg" para añadir el siguiente archivo, o "ex" para salir: ')
+            if n.isdigit():
+                insert_pdf_page(int(n), 'sources/catalogo_productos.pdf', ruta_archivo)
                 break
             else:
-                print("Por favor, ingrese un número válido o 'god'.")
+                if n.lower() == 'sg':
+                    break
+                if n.lower() == 'ex':
+                    sys.exit()
+                else:
+                    print("Por favor, ingrese una opcion valida")
 
 if __name__ == '__main__':
     main()
- 
