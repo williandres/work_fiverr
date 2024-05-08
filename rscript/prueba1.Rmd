@@ -1,0 +1,70 @@
+---
+title: "Untitled"
+output: html_document
+date: "2024-03-26"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls())
+
+
+# Instalación automática de paquete.
+#Este bloque se encarga de instalar los paquetes necesarios.
+packages = c("tidyverse","knitr","reshape2")
+package.check <- lapply(packages, FUN = function(x) {
+  if (!require(x, character.only = TRUE)) {
+    install.packages(x, dependencies = TRUE,repos='http://cran.rediris.es')
+  }
+  library(x, character.only = TRUE)
+})
+search()
+
+
+rutas <- list.files("prueba/")
+#tiquets <- replicate(rutas, list(NULL))
+
+
+for (archivo in rutas){
+  x <- readLines(paste("prueba",archivo,sep= "/"), encoding = "latin1")
+  prod <- x[8:length(x)]
+  producto <- list()
+  final <- list()
+  enc = FALSE
+  for (elemento in prod){
+    if (grepl("TOTAL", elemento)){
+      enc = TRUE
+    }
+    if (enc == FALSE){
+      producto <- c(producto, elemento)
+    }
+    if (enc == TRUE){
+      final <- c(final, elemento)
+    }
+  }
+  df <- data.frame(Nombre = x[1], Calle = x[2], Municipio = x[3], Telefono = x[4], Fecha = x[5], Factura_simpl= x[6] , Productos = producto[0:length(producto)])
+  df <- pivot_longer(df, names_to = "Producto", values_to = "Productos", cols = -c("Nombre","Calle", "Municipio", "Telefono", "Fecha", "Factura_simpl"))
+  total_columnas <- ncol(df)
+  posicion <- total_columnas - 1
+  df <- df[, -posicion]
+  
+  #Cantidad
+  df_productos <- select(df, 1, 7)
+  df_separado <- df_productos %>%
+    mutate(Cantidad = substr(Productos, 1, 1))
+  df_separado$Productos <- substr(df$Productos, 2, nchar(df$Productos))
+  df_separado$Cantidad <- as.numeric(df_separado$Cantidad)
+  
+  #Importe
+  df_separado$Importe <- sub("^.*\\s+(\\d+[,.]\\d+)$", "\\1", df_separado$Productos)
+  df_separado$Importe <- gsub(",", ".", df_separado$Importe)
+  df_separado$Importe <- as.numeric(df_separado$Importe)
+  
+  #Precio por Unidad
+  df_separado <- df_separado %>% mutate(PUnidad = Importe / Cantidad)
+  
+  #Nombre del producto
+  df_separado$Nombre <- substr(df_separado$Productos, 1, nchar(df_separado$Productos) - nchar(format(df_separado$Importe, nsmall = 2)) -1)
+  df_separado$Nombre[df_separado$Cantidad > 1] <- substr(df_separado$Nombre[df_separado$Cantidad > 1], 1, nchar(df_separado$Nombre[df_separado$Cantidad > 1]) - nchar(format(df_separado$PUnidad, nsmall = 2)) -1)
+}
