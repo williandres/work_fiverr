@@ -22,6 +22,6 @@ def concat_csvs(input_folder, output_file):
     concatenated_df.to_csv(output_file, index=False)
 
 if __name__ == "__main__":
-    input_folder = '/home/willian/Repositories/work_fiverr/web_scrap/sources/datos/'  # Cambia esto por la ruta a tu carpeta
+    input_folder = 'sources/datos_crudos_manual'  # Cambia esto por la ruta a tu carpeta
     output_file = '/home/willian/Repositories/work_fiverr/web_scrap/sources/clients.csv'    # Cambia esto por la ruta y nombre de tu archivo de salida
     concat_csvs(input_folder, output_file)
