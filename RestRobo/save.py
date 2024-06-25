@@ -86,7 +86,7 @@ def save_events_to_file(filename, events):
     print(f'Eventos guardados en {filename}')
 
 # Iniciar los listeners para el mouse y el teclado
-with mouse.Listener(on_move=on_move, on_click=on_click, on_scroll=on_scroll) as mouse_listener, \
+with mouse.Listener(on_click=on_click, on_scroll=on_scroll) as mouse_listener, \
      keyboard.Listener(on_press=on_press, on_release=on_release) as keyboard_listener:
     while running:
         pass
