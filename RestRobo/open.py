@@ -2,37 +2,6 @@ import os
 import subprocess
 import platform
 import time
-from pynput import mouse
-from pynput.mouse import Button, Controller
-
-def on_move(x, y):
-    pass
-    # print('Pointer moved to {0}'.format(
-    #     (x, y)))
-
-def on_click(x, y, button, pressed):
-    print('{0} at {1}'.format(
-        'Pressed' if pressed else 'Released',
-        (x, y)))
-    if not pressed:
-        # Stop listener
-        # return False
-        pass
-
-def on_scroll(x, y, dx, dy):
-    print('Scrolled {0} at {1}'.format(
-        'down' if dy < 0 else 'up',
-        (x, y)))
-    return False
-
-#
-##
-###
-####
-####
-###
-##
-#
 
 def get_applications_linux():
     paths = ['/usr/bin', '/usr/local/bin']
@@ -56,18 +25,23 @@ def get_applications_macos():
     apps = [app for app in os.listdir(path) if app.endswith('.app')]
     return sorted(set(apps))
 
-def open_application(app_name):
+def open_application(app_name, is_path=False):
     system = platform.system()
     try:
         if system == 'Linux':
-            # Abrir la aplicación y ponerla en pantalla completa
-            proc = subprocess.Popen([app_name])
-            time.sleep(5)  # Esperar un segundo para que la aplicación se inicie
+            if is_path:
+                proc = subprocess.Popen([app_name])
+            else:
+                proc = subprocess.Popen([app_name])
+            time.sleep(25)
+            print('Full screen')
             subprocess.run(['wmctrl', '-r', app_name, '-b', 'add,fullscreen'])
         elif system == 'Windows':
-            # Abrir la aplicación y maximizar la ventana
-            proc = subprocess.Popen(['start', app_name], shell=True)
-            time.sleep(5)  # Esperar un segundo para que la aplicación se inicie
+            if is_path:
+                proc = subprocess.Popen([app_name], shell=True)
+            else:
+                proc = subprocess.Popen(['start', app_name], shell=True)
+            time.sleep(5)  
             script = f"""
             $app = Get-Process | Where-Object {{ $_.MainWindowTitle -like "*{app_name}*" }}
             $hwnd = $app.MainWindowHandle
@@ -84,9 +58,11 @@ def open_application(app_name):
             """
             subprocess.run(["powershell", "-Command", script], check=True)
         elif system == 'Darwin':
-            # Abrir la aplicación y maximizar la ventana
-            proc = subprocess.run(['open', f'/Applications/{app_name}'], check=True)
-            time.sleep(1)  # Esperar un segundo para que la aplicación se inicie
+            if is_path:
+                proc = subprocess.run(['open', app_name], check=True)
+            else:
+                proc = subprocess.run(['open', f'/Applications/{app_name}'], check=True)
+            time.sleep(1)  
             script = f"""
             tell application "{app_name.replace('.app', '')}"
                 activate
@@ -95,15 +71,14 @@ def open_application(app_name):
             """
             subprocess.run(["osascript", "-e", script], check=True)
     except subprocess.CalledProcessError as e:
-        print(f"Error al intentar abrir {app_name}: {e}")
+        print(f"Error {app_name}: {e}")
     except FileNotFoundError:
-        print(f"{app_name} no está instalado o no se encontró en el PATH.")
+        print(f"{app_name} is not installed or was not found in the PATH.")
 
 def save_applications_to_file(apps, filename):
     with open(filename, 'w') as file:
         for i, app in enumerate(apps):
             file.write(f"{i + 1}. {app}\n")
-    print(f"Lista de aplicaciones guardada en {filename}")
 
 def main():
     system = platform.system()
@@ -114,41 +89,24 @@ def main():
     elif system == 'Darwin':
         apps = get_applications_macos()
     else:
-        print(f"Sistema operativo no soportado: {system}")
+        print(f"Unsupported system: {system}")
         return
 
-    filename = "applications_list.txt"
-    save_applications_to_file(apps, filename)
+    save_applications_to_file(apps, "applications_list.txt")
 
-    choice = 1949  # Este valor debería ser reemplazado por la selección del usuario
-    app_name = apps[choice - 1]
-    print('Abriendo ', app_name)
-    open_application(app_name)
+    #1949
+    choice = '1949'
+
+    try:
+        choice_num = int(choice)
+        app_name = apps[choice_num - 1]
+        print('Opening... ', app_name)
+        open_application(app_name)
+    except ValueError:
+        app_path = choice
+        print('Opening executable... ', app_path)
+        open_application(app_path, is_path=True)
 
 if __name__ == "__main__":
-    main()
-    mouse = Controller()
-    mouse.position = (46, 284)
-    mouse.press(Button.left)
-    mouse.release(Button.left)
-    time.sleep(2)
-    mouse.position = (49, 514)
-    mouse.press(Button.left)
-    mouse.release(Button.left)
-    time.sleep(2)
-    mouse.position = (224, 350)
-    mouse.press(Button.left)
-    mouse.release(Button.left)
-# # Collect events until released
-#     with mouse.Listener(
-#             on_move=on_move,
-#             on_click=on_click,
-#             on_scroll=on_scroll) as listener:
-#         listener.join()
-
-#     # ...or, in a non-blocking fashion:
-#     listener = mouse.Listener(
-#         on_move=on_move,
-#         on_click=on_click,
-#         on_scroll=on_scroll)
-# listener.start()
+    pass
+    #main()

@@ -1,24 +1,20 @@
 import json
-import os
+import time
 from pynput import mouse, keyboard
-import random
 
-# Listas para almacenar los eventos
 events = []
-
-# Variable global para controlar el estado de ejecución de los listeners
 running = True
 
-
+#-----------------------------------------Mouse-----------------------------------------#
 def on_move(x, y):
     event = {
         'type': 'mouse',
         'event': 'move',
-        'position': (x, y)
+        'position': (x, y),
+        'timestamp': time.time()
     }
     events.append(event)
 
-# Funciones para el mouse
 def on_click(x, y, button, pressed):
     if not running:
         return False
@@ -27,7 +23,8 @@ def on_click(x, y, button, pressed):
         'event': 'click',
         'position': (x, y),
         'button': str(button),
-        'pressed': pressed
+        'pressed': pressed,
+        'timestamp': time.time()
     }
     events.append(event)
     print('{0} at {1}'.format('Pressed' if pressed else 'Released', (x, y)))
@@ -40,12 +37,13 @@ def on_scroll(x, y, dx, dy):
         'event': 'scroll',
         'position': (x, y),
         'dx': dx,
-        'dy': dy
+        'dy': dy,
+        'timestamp': time.time()
     }
     events.append(event)
     print('Scrolled {0} at {1}'.format('down' if dy < 0 else 'up', (x, y)))
 
-# Funciones para el teclado
+#-----------------------------------------Keyboard-----------------------------------------#
 def on_press(key):
     if not running:
         return False
@@ -53,14 +51,16 @@ def on_press(key):
         event = {
             'type': 'keyboard',
             'event': 'press',
-            'key': key.char
+            'key': key.char,
+            'timestamp': time.time()
         }
         print('alphanumeric key {0} pressed'.format(key.char))
     except AttributeError:
         event = {
             'type': 'keyboard',
             'event': 'press',
-            'key': str(key)
+            'key': str(key),
+            'timestamp': time.time()
         }
         print('special key {0} pressed'.format(key))
     events.append(event)
@@ -72,26 +72,34 @@ def on_release(key):
     event = {
         'type': 'keyboard',
         'event': 'release',
-        'key': str(key)
+        'key': str(key),
+        'timestamp': time.time()
     }
     print('{0} released'.format(key))
     if key == keyboard.Key.esc:
         running = False
         return False
     events.append(event)
-# Función para guardar eventos en archivos JSON
-def save_events_to_file(filename, events):
+
+#-----------------------------------------Ejecucion-----------------------------------------#
+def save_events_to_file(filename, events, fileapp):
+    data = {
+        'fileapp': fileapp,
+        'delay': 1,
+        'events': events
+    }
     with open(filename, 'w') as file:
-        json.dump(events, file, indent=4)
-    print(f'Eventos guardados en {filename}')
+        json.dump(data, file, indent=4)
+    print(f'Saved {filename}')
 
-# Iniciar los listeners para el mouse y el teclado
-with mouse.Listener(on_click=on_click, on_scroll=on_scroll) as mouse_listener, \
-     keyboard.Listener(on_press=on_press, on_release=on_release) as keyboard_listener:
-    while running:
-        pass
+def main(fileapp):
+    with mouse.Listener(on_click=on_click, on_scroll=on_scroll) as mouse_listener, \
+        keyboard.Listener(on_press=on_press, on_release=on_release) as keyboard_listener:
+        while running:
+            pass
 
-# Guardar los eventos al finalizar
-save_events_to_file(f'profiles/events{random.randint(0, 1000)}.json', events)
+    save_events_to_file(f'profiles/events.json', events, fileapp)
 
-
+if __name__ == "__main__":
+    pass
+    #main('app url')
