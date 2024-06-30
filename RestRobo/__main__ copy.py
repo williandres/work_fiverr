@@ -7,19 +7,18 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-import sources.ui.base_rc
+import sys
 
 class Ui_Main(object):
     def setupUi(self, Main):
+        #Init
         Main.setObjectName("Main")
-        Main.setEnabled(True)
         Main.resize(569, 521)
-        Main.setMinimumSize(QtCore.QSize(569, 521))
-        Main.setMaximumSize(QtCore.QSize(569, 521))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/header/only logo without name.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("../../../.designer/backup/sources/restrobo logo/only logo without name.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         Main.setWindowIcon(icon)
         Main.setAutoFillBackground(True)
+        #Compartimento
         self.centralwidget = QtWidgets.QWidget(parent=Main)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
@@ -28,6 +27,7 @@ class Ui_Main(object):
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
+        #Header
         self.resttobologo = QtWidgets.QLabel(parent=self.frame)
         self.resttobologo.setGeometry(QtCore.QRect(220, 10, 131, 111))
         self.resttobologo.setStyleSheet("image: url(:/header/second transparent bg.png);\n"
@@ -78,7 +78,13 @@ class Ui_Main(object):
         self.tableWidget.setStyleSheet("background-color: rgb(23, 23, 23);")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
-        self.tableWidget.setRowCount(0)
+        self.tableWidget.setRowCount(3)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -87,6 +93,12 @@ class Ui_Main(object):
         self.tableWidget.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 2, item)
         self.horizontalLayoutWidget = QtWidgets.QWidget(parent=self.schedtab)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(30, 289, 451, 31))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
@@ -285,6 +297,12 @@ class Ui_Main(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:7pt; font-weight:700;\">by Unwiring Tech</span></p></body></html>"))
+        item = self.tableWidget.verticalHeaderItem(0)
+        item.setText(_translate("Main", "New Row"))
+        item = self.tableWidget.verticalHeaderItem(1)
+        item.setText(_translate("Main", "1"))
+        item = self.tableWidget.verticalHeaderItem(2)
+        item.setText(_translate("Main", "2"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Main", "Name"))
         item = self.tableWidget.horizontalHeaderItem(1)
@@ -293,6 +311,15 @@ class Ui_Main(object):
         item.setText(_translate("Main", "Execution time"))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("Main", "Delay(s)"))
+        __sortingEnabled = self.tableWidget.isSortingEnabled()
+        self.tableWidget.setSortingEnabled(False)
+        item = self.tableWidget.item(0, 0)
+        item.setText(_translate("Main", "esd"))
+        item = self.tableWidget.item(0, 1)
+        item.setText(_translate("Main", "gsdg"))
+        item = self.tableWidget.item(0, 2)
+        item.setText(_translate("Main", "dsffds"))
+        self.tableWidget.setSortingEnabled(__sortingEnabled)
         self.pushButton_2.setText(_translate("Main", "Add"))
         self.pushButton_3.setText(_translate("Main", "Remove"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.schedtab), _translate("Main", "Active Schedule"))
