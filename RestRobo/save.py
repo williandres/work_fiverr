@@ -99,7 +99,3 @@ def main(fileapp):
             pass
 
     save_events_to_file(f'profiles/events.json', events, fileapp)
-
-if __name__ == "__main__":
-    pass
-    #main('app url')

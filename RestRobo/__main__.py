@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import sources.ui.base_rc
+import control
 
 class Ui_Main(object):
         #Record --> Browse files
@@ -14,7 +15,10 @@ class Ui_Main(object):
                 name = self.iname.text()
                 description = self.idescription.toPlainText()
                 executable = self.iexecutable.text()
+                print('RECORD +')
                 print(f"Name: {name}, Description: {description}, Executable: {executable}")
+                print("Status: ", str(control.record_steps(name, description, executable)))
+                print('________________________________________')
 
         def setupUi(self, Main):
                 #Main window
