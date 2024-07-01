@@ -6,14 +6,21 @@ from datetime import datetime, time
 import time as pytime
 import record_control
 import json
+from infoWIndow import Ui_InfoWindow
 import json_controller
 
 
 class Ui_Main(object):
+        def openWindow(self):
+                self.window = QtWidgets.QMainWindow()
+                self.ui = Ui_InfoWindow()
+                self.ui.setupUi(self.window)
+                self.window.show()
+
         def check_and_execute(self):
                 while True:
                         buffer = []
-                        with open('sources/active_profiles.json', 'r') as file:
+                        with open ('sources/active_profiles.json', 'r') as file:
                                 data = json.load(file)
                         print('Observer')
                         print(data)
@@ -223,11 +230,12 @@ class Ui_Main(object):
                 self.settings.setGeometry(QtCore.QRect(490, 50, 31, 31))
                 self.settings.setAutoFillBackground(False)
                 self.settings.setStyleSheet("\n"
-        "border-image: url(:/header/settings.png);\n"
+        "border-image: url(:/header/!3.png);\n"
         "")
                 self.settings.setText("")
                 self.settings.setAutoDefault(False)
                 self.settings.setObjectName("settings")
+                self.settings.clicked.connect(self.openWindow)
 
                 #by Unwirng Tech
                 self.textEdit = QtWidgets.QTextEdit(parent=self.frame)
@@ -331,7 +339,7 @@ class Ui_Main(object):
                 self.formLayout.setObjectName("formLayout")
                                 #Name Label
                 self.name = QtWidgets.QLabel(parent=self.formLayoutWidget)
-                self.name.setStyleSheet("background-color: rgba(191, 64, 64, 0);\n"
+                self.name.setStyleSheet("background-color: rgba(0, 0, 0, 0);\n"
         "font: 12pt \"Ubuntu\";")
                 self.name.setObjectName("name")
                 self.formLayout.setWidget(0, QtWidgets.QFormLayout.ItemRole.LabelRole, self.name)
@@ -571,10 +579,13 @@ class Ui_Main(object):
         "li.unchecked::marker { content: \"\\2610\"; }\n"
         "li.checked::marker { content: \"\\2612\"; }\n"
         "</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:700;\">Steps</span></p>\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">-</span></p>\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">-</span></p>\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">-</span></p></body></html>"))
+        "<p style=\" margin-top:0px; margin-bottom:8px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:700;\">Warning! \n</span></p>\n\n"
+        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">• To save a profile it is necessary to write a name and select an executable (App).<br />\n\n"
+        "• Profiles are saved in 'Sources/Profiles'.<br />\n\n"
+        "• If you want to test the profile go to the 'Test' tab.<br />\n\n"
+        "• If you want to run the program at a certain minute of the day go to the 'Active Schedule' tab. Add the profile and make sure that the entire row is green.</p>\n\n"
+        "</body></html>"))
+
                         #Second text box
                 self.textBrowser_3.setHtml(_translate("Main", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
         "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
@@ -583,10 +594,11 @@ class Ui_Main(object):
         "li.unchecked::marker { content: \"\\2610\"; }\n"
         "li.checked::marker { content: \"\\2612\"; }\n"
         "</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:700;\">Recommendations</span></p>\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">-</span></p>\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">-</span></p>\n"
-        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">-</span></p></body></html>"))
+        "<p style=\" margin-top:0px; margin-bottom:8px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; font-weight:700;\">Guide</span></p>\n"
+        "<p style=\" margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">By pressing the Save button if the required fields work satisfactorily, the selected application will run and 3 seconds later it will start recording the keyboard and mouse gestures.</p>\n"
+        "<p style=\" margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">It is advisable to be moderate with the keyboard and mouse actions so that the execution is cleaner and it is much easier for the program to replicate it.</p>\n"
+        "<p style=\" margin-top:0px; margin-bottom:10px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">It is perfectly possible to do more actions outside the executable, but it is a good practice to stay within the application's boundaries.</p>\n"
+        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">When you want to stop recording just press the 'Esc' key.</p></body></html>"))
                 self.tabWidget.setTabText(self.tabWidget.indexOf(self.rectab), _translate("Main", "Record"))
                 
                 #Test
