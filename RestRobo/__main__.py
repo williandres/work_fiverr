@@ -9,9 +9,21 @@ import json_controller
 class Ui_Main(object):
         #Active Schedule -> Status row
         def setColortoRow(self,data):
-                coloring = json_controller.validatejson(data)
-                for j in coloring:
-                        self.tableWidget.item(j[0], j[1]).setBackground(QtGui.QColor(125,125,125))
+                todas_son_largas = True
+                for sublista in data:
+                        if len(sublista) != 5:
+                                todas_son_largas = False
+                                break
+                if todas_son_largas:
+                        coloring = json_controller.validatejson(data)
+                        for j in coloring[0]:
+                                self.tableWidget.item(j[0], j[1]).setBackground(QtGui.QColor(144, 238, 144,50))
+                        for j in coloring[1]:
+                                try:
+                                        self.tableWidget.item(j[0], j[1]).setBackground(QtGui.QColor(125,125,125,0))
+                                except:
+                                        pass
+
 
         #Active Schedule -> Actualize JSON
         def handle_update(self):
@@ -30,6 +42,7 @@ class Ui_Main(object):
                         table_content.append(row_data)
 
                 json_controller.updatejsoninfo(table_content,'sources/profiles.json')
+                print(table_content)
                 ui.setColortoRow(table_content)
 
         #Active Schedule -> Start data
