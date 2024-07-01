@@ -1,12 +1,40 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from play import EventReplayer
 import sources.ui.base_rc
+import threading
+from datetime import datetime, time
+import time as pytime
 import record_control
 import json
 import json_controller
 
 
 class Ui_Main(object):
+        def check_and_execute(self):
+                while True:
+                        buffer = []
+                        with open('sources/active_profiles.json', 'r') as file:
+                                data = json.load(file)
+                        print('Observer')
+                        print(data)
+                        print(datetime.now().time())
+                        current_time = datetime.now().time().replace(second=0, microsecond=0)
+
+                        for i in data:
+                                scheduled_time = datetime.strptime(i[3], '%H:%M').time()
+                                if scheduled_time == current_time and i not in buffer:
+                                        buffer.append(i)
+
+                        for j in buffer:
+                                print('Executing ', j[0])
+                                replayer = EventReplayer()
+                                replayer.replay_events(j[1], j[2],float(j[4]))
+                        print('_____________________________________________________')
+                        pytime.sleep(15)
+
+
+
+        ######
         #Active Schedule -> Status row
         def setColortoRow(self,data):
                 todas_son_largas = True
@@ -42,7 +70,6 @@ class Ui_Main(object):
                         table_content.append(row_data)
 
                 json_controller.updatejsoninfo(table_content,'sources/profiles.json')
-                print(table_content)
                 ui.setColortoRow(table_content)
 
         #Active Schedule -> Start data
@@ -68,7 +95,7 @@ class Ui_Main(object):
                                 if isinstance(data, list) and data and 'key' in data[0] and data[0]['key'] == 'RestRobo':
                                         row_position = self.tableWidget.rowCount()
                                         self.tableWidget.insertRow(row_position)
-                                        info = [data[0]['tittle'],file_path,data[0]['app'],'hh:mm','0']
+                                        info = [data[0]['tittle'],file_path,data[0]['app'],'HH:MM','0']
                                         for col in range(len(info)):
                                                 item = QtWidgets.QTableWidgetItem(info[col])
                                                 self.tableWidget.setItem(row_position, col, item)
@@ -581,6 +608,8 @@ if __name__ == "__main__":
     ui = Ui_Main()
     ui.setupUi(Main)
     Main.show()
+    time_check_thread = threading.Thread(target=ui.check_and_execute)
+    time_check_thread.start()
     sys.exit(app.exec())
 
     #-----#-------#
