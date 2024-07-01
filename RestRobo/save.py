@@ -72,13 +72,23 @@ class EventRecorder:
     def on_release(self, key):
         if not self.running:
             return False
-        event = {
-            'type': 'keyboard',
-            'event': 'release',
-            'key': str(key),
-            'timestamp': time.time()
-        }
-        print('{0} released'.format(key))
+        try:
+            event = {
+                'type': 'keyboard',
+                'event': 'release',
+                'key': key.char,
+                'timestamp': time.time()
+            }
+            print('alphanumeric key {0} released'.format(key.char))
+        except AttributeError:
+            event = {
+                'type': 'keyboard',
+                'event': 'release',
+                'key': str(key),
+                'timestamp': time.time()
+            }
+            print('special key {0} released'.format(key))
+        self.events.append(event)
         if key == keyboard.Key.esc:
             self.running = False
             return False

@@ -1,10 +1,29 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
+from play import EventReplayer
 import sources.ui.base_rc
-import control
+import record_control
 import json
 
 class Ui_Main(object):
+        #Test --> Delay bar
+        def update_delay_label(self, value):
+                self.seconds.setText(f"{value / 10:.1f}")
+
         #Test --> Play
+        def handle_play_button(self):
+                filename = self.lineEdit.text()
+                executable = self.textBrowser_4.toPlainText()
+                extra_delay = float(self.seconds.text())
+
+                if not filename or not executable:
+                        QtWidgets.QMessageBox.warning(None, "Error", "Both filename and executable must be filled.")
+                        return
+
+                replayer = EventReplayer()
+                replayer.replay_events(filename, executable,extra_delay)
+                print('Successfull execution')
+
+
 
         #Test --> Browse Files
         def selectFileSearch(self):
@@ -17,7 +36,15 @@ class Ui_Main(object):
                                 with open(file_path, 'r') as file:
                                         data = json.load(file)
                                 if isinstance(data, list) and data and 'key' in data[0] and data[0]['key'] == 'RestRobo':
+                                        #Filename
                                         self.lineEdit.setText(file_path)
+                                        #Description
+                                        tittle = data[0]['tittle']
+                                        description = data[0]['description']
+                                        date = data[0]['creation date']
+                                        self.textBrowser.setText(tittle + '\n\n' + description + '\n\n' + date)
+                                        #App
+                                        self.textBrowser_4.setText(data[0]['app'])
                                 else:
                                         QtWidgets.QMessageBox.warning(None, "Error", "The JSON is not in the expected format.")
                         except json.JSONDecodeError:
@@ -26,7 +53,7 @@ class Ui_Main(object):
                                 QtWidgets.QMessageBox.warning(None, "Error", f"An error has occurred: {e}")
                 #Description
                 self.textBrowser
-                #
+                #App
                 self.textBrowser_4
 
         #Record --> Browse files
@@ -41,7 +68,7 @@ class Ui_Main(object):
                 name = self.iname.text()
                 description = self.idescription.toPlainText()
                 executable = self.iexecutable.text()
-                res = control.record_steps(name, description, executable)
+                res = record_control.record_steps(name, description, executable)
                 print('RECORD +')
                 print(f"Name: {name}, Description: {description}, Executable: {executable}")
                 print("Status: ", str(res))
@@ -338,20 +365,23 @@ class Ui_Main(object):
                 self.play.setIcon(icon8)
                 self.play.setIconSize(QtCore.QSize(40, 40))
                 self.play.setObjectName("play")
+                self.play.clicked.connect(self.handle_play_button)
                         #Delay Bar
                 self.delaybar = QtWidgets.QSlider(parent=self.testab)
                 self.delaybar.setGeometry(QtCore.QRect(360, 190, 101, 16))
+                self.delaybar.setMinimum(1)
                 self.delaybar.setMaximum(20)
                 self.delaybar.setOrientation(QtCore.Qt.Orientation.Horizontal)
                 self.delaybar.setObjectName("delaybar")
+                self.delaybar.valueChanged.connect(self.update_delay_label)
                         #Seconds content box
                 self.seconds = QtWidgets.QLabel(parent=self.testab)
-                self.seconds.setGeometry(QtCore.QRect(380, 170, 67, 17))
-                self.seconds.setText("")
+                self.seconds.setGeometry(QtCore.QRect(405, 170, 67, 17))#QtCore.QRect(380, 170, 67, 17)
+                self.seconds.setText("0")
                 self.seconds.setObjectName("seconds")
                         #delay by action label
                 self.label = QtWidgets.QLabel(parent=self.testab)
-                self.label.setGeometry(QtCore.QRect(360, 140, 111, 20))
+                self.label.setGeometry(QtCore.QRect(365, 140, 111, 20))
                 self.label.setStyleSheet("color: rgb(110, 110, 110);")
                 self.label.setObjectName("label")
                 icon9 = QtGui.QIcon()
