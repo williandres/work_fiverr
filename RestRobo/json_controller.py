@@ -1,5 +1,6 @@
 import json
 import record_control
+from datetime import datetime
 
 def getjsoninfo(filepath):
     data = []
@@ -92,7 +93,12 @@ def validatejson(data):
                     row_is_valid = False
             # cuarta
             elif col_idx == 3:
-                pass  # Puedes añadir tu propia lógica de validación aquí y agregar a valid_cells o invalid_cells
+                try:
+                    datetime.strptime(cell, '%H:%M')
+                    valid_cells.append((row_idx, col_idx))
+                except ValueError:
+                    invalid_cells.append((row_idx, col_idx))
+                    row_is_valid = False
 
         if row_is_valid:
             valid_rows.append(row)
