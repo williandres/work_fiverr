@@ -8,8 +8,12 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 import sources.ui.base_rc
+import webbrowser
 
 class Ui_InfoWindow(object):
+    def link(self):
+        webbrowser.open('https://github.com/williandres/work_fiverr/tree/main/RestRobo')
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(313, 280)
@@ -55,10 +59,11 @@ class Ui_InfoWindow(object):
         self.label_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.label_3.setObjectName("label_3")
         self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(140, 260, 31, 21))
+        self.pushButton.setGeometry(QtCore.QRect(140, 260, 31, 17))
         self.pushButton.setStyleSheet("background-color: rgba(191, 64, 64, 0);\n"
 "background-image: url(:/header/github_git_icon_145985.png);")
         self.pushButton.setText("")
+        self.pushButton.clicked.connect(self.link)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/header/github_git_icon_145985.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.pushButton.setIcon(icon1)
