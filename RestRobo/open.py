@@ -107,6 +107,3 @@ def main():
         print('Opening executable... ', app_path)
         open_application(app_path, is_path=True)
 
-if __name__ == "__main__":
-    pass
-    #main()
