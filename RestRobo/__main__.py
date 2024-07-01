@@ -3,8 +3,81 @@ from play import EventReplayer
 import sources.ui.base_rc
 import record_control
 import json
+import json_controller
+
 
 class Ui_Main(object):
+        #Active Schedule -> Status row
+        def setColortoRow(self,data):
+                coloring = json_controller.validatejson(data)
+                for j in coloring:
+                        self.tableWidget.item(j[0], j[1]).setBackground(QtGui.QColor(125,125,125))
+
+        #Active Schedule -> Actualize JSON
+        def handle_update(self):
+                num_rows = self.tableWidget.rowCount()
+                num_cols = self.tableWidget.columnCount()
+                table_content = []
+
+                for row in range(num_rows):
+                        row_data = []
+                        for col in range(num_cols):
+                                item = self.tableWidget.item(row, col)
+                                if item is not None:
+                                        row_data.append(item.text())
+                                else:
+                                        row_data.append("")  # Trata las celdas vacías como cadenas vacías
+                        table_content.append(row_data)
+
+                json_controller.updatejsoninfo(table_content,'sources/profiles.json')
+                ui.setColortoRow(table_content)
+
+        #Active Schedule -> Start data
+        def add_initial_data(self):
+                data = json_controller.getjsoninfo('sources/profiles.json')
+                for i in data:
+                        row_position = self.tableWidget.rowCount()
+                        self.tableWidget.insertRow(row_position)
+                        for col in range(self.tableWidget.columnCount()):
+                                item = QtWidgets.QTableWidgetItem(i[col])
+                                self.tableWidget.setItem(row_position, col, item)
+                ui.setColortoRow(data)
+
+        #Active Schedule -> Add profile
+        def add_row(self):
+                file_dialog = QtWidgets.QFileDialog()
+                file_dialog.setDirectory('sources/profiles')
+                file_path, _ = file_dialog.getOpenFileName(filter="JSON files (*.json)")
+                if file_path:
+                        try:
+                                with open(file_path, 'r') as file:
+                                        data = json.load(file)
+                                if isinstance(data, list) and data and 'key' in data[0] and data[0]['key'] == 'RestRobo':
+                                        row_position = self.tableWidget.rowCount()
+                                        self.tableWidget.insertRow(row_position)
+                                        info = [data[0]['tittle'],file_path,data[0]['app'],'hh:mm','0']
+                                        for col in range(len(info)):
+                                                item = QtWidgets.QTableWidgetItem(info[col])
+                                                self.tableWidget.setItem(row_position, col, item)
+                                else:
+                                        QtWidgets.QMessageBox.warning(None, "Error", "The JSON is not in the expected format.")
+                        except json.JSONDecodeError:
+                                QtWidgets.QMessageBox.warning(None, "Error", "The selected file is not a valid JSON.")
+                        except Exception as e:
+                                QtWidgets.QMessageBox.warning(None, "Error", f"An error has occurred: {e}")
+                ui.handle_update()
+
+
+        #Active Schedule -> Remove profile
+        def remove_row(self):
+                selected_row = self.tableWidget.currentRow()
+                if selected_row >= 0:
+                        self.tableWidget.removeRow(selected_row)
+                ui.handle_update()
+
+
+##########################
+
         #Test --> Delay bar
         def update_delay_label(self, value):
                 self.seconds.setText(f"{value / 10:.1f}")
@@ -22,8 +95,6 @@ class Ui_Main(object):
                 replayer = EventReplayer()
                 replayer.replay_events(filename, executable,extra_delay)
                 print('Successfull execution')
-
-
 
         #Test --> Browse Files
         def selectFileSearch(self):
@@ -160,7 +231,7 @@ class Ui_Main(object):
                 self.tableWidget.setGeometry(QtCore.QRect(30, 20, 451, 261))
                 self.tableWidget.setStyleSheet("background-color: rgb(23, 23, 23);")
                 self.tableWidget.setObjectName("tableWidget")
-                self.tableWidget.setColumnCount(4)
+                self.tableWidget.setColumnCount(5)
                 self.tableWidget.setRowCount(0)
                 item = QtWidgets.QTableWidgetItem()
                 self.tableWidget.setHorizontalHeaderItem(0, item)
@@ -170,6 +241,8 @@ class Ui_Main(object):
                 self.tableWidget.setHorizontalHeaderItem(2, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tableWidget.setHorizontalHeaderItem(3, item)
+                item = QtWidgets.QTableWidgetItem()
+                self.tableWidget.setHorizontalHeaderItem(4, item)
                         #Buttons
                 self.horizontalLayoutWidget = QtWidgets.QWidget(parent=self.schedtab)
                 self.horizontalLayoutWidget.setGeometry(QtCore.QRect(30, 289, 451, 31))
@@ -188,6 +261,7 @@ class Ui_Main(object):
                 self.horizontalLayout.addWidget(self.pushButton_2)
                 spacerItem = QtWidgets.QSpacerItem(90, 20, QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Minimum)
                 self.horizontalLayout.addItem(spacerItem)
+                self.pushButton_2.clicked.connect(self.add_row)
                         #Remove
                 self.pushButton_3 = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget)
                 self.pushButton_3.setStyleSheet("background-color: rgb(62, 62, 62);\n"
@@ -197,6 +271,7 @@ class Ui_Main(object):
                 self.pushButton_3.setIcon(icon2)
                 self.pushButton_3.setObjectName("pushButton_3")
                 self.horizontalLayout.addWidget(self.pushButton_3)
+                self.pushButton_3.clicked.connect(self.remove_row)
                         #Other config
                 icon3 = QtGui.QIcon()
                 icon3.addPixmap(QtGui.QPixmap(":/header/clock_icon-icons.com_54407.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -419,11 +494,21 @@ class Ui_Main(object):
                 item = self.tableWidget.horizontalHeaderItem(0)
                 item.setText(_translate("Main", "Name"))
                 item = self.tableWidget.horizontalHeaderItem(1)
-                item.setText(_translate("Main", "Application"))
+                item.setText(_translate("Main", "Filename"))
                 item = self.tableWidget.horizontalHeaderItem(2)
-                item.setText(_translate("Main", "Execution time"))
+                item.setText(_translate("Main", "Application"))
                 item = self.tableWidget.horizontalHeaderItem(3)
+                item.setText(_translate("Main", "Execution time"))
+                item = self.tableWidget.horizontalHeaderItem(4)
                 item.setText(_translate("Main", "Delay(s)"))
+                column_widths = [100,100, 150, 120, 90]  # Ejemplo de anchos deseados
+                for col, width in enumerate(column_widths):
+                        self.tableWidget.setColumnWidth(col, width)
+                self.add_initial_data()
+                self.tableWidget.cellChanged.connect(self.handle_update)
+                self.tableWidget.itemChanged.connect(self.handle_update)
+                self.tableWidget.itemSelectionChanged.connect(self.handle_update)
+
                         #Buttons
                 self.pushButton_2.setText(_translate("Main", "Add"))
                 self.pushButton_3.setText(_translate("Main", "Remove"))
