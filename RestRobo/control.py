@@ -1,9 +1,10 @@
 import play
-import open
-import save
 import os
 import subprocess
 import platform
+from save import EventRecorder
+
+
 
 def is_executable_valid(executable):
     if platform.system() == 'Linux':
@@ -24,18 +25,23 @@ def record_steps(name, description, executable, folder_path = 'sources/profiles'
 
     if not name.strip():
         print("- Empty name")
-        return 'Fail'
+        return [1,'Empty name']
 
     if any(file_name == name+'.json' for file_name in os.listdir(folder_path)):
         print(f"- '{name}' already exist '{folder_path}'.")
-        return 'Fail'
+        return [2,str(name) + " already exist " + str(folder_path) + "."]
 
     if not os.path.isfile(executable):
-        print(f"- '{executable}' doesn't exists")
-        return 'Fail'
+        print(f"- '{executable}' doesn't exists.")
+        return [3,str(executable) + " doesn't exists."]
     if not is_executable_valid(executable):
-        print(f"El archivo '{executable}' no es un ejecutable válido.")
-        return 'Fail'
+        print(f"'{executable}' is not a valid executable.")
+        return [4,str(executable) + " is not a valid executable."]
 
-    #
-    return 'Succes'
+    #Execution
+    filename = folder_path + '/' + name + '.json'
+
+    recorder = EventRecorder()
+    recorder.main(filename, name, description, executable)
+    return [5, 'Success saving!']
+

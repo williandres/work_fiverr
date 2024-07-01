@@ -1,8 +1,34 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import sources.ui.base_rc
 import control
+import json
 
 class Ui_Main(object):
+        #Test --> Play
+
+        #Test --> Browse Files
+        def selectFileSearch(self):
+                file_dialog = QtWidgets.QFileDialog()
+                file_dialog.setDirectory('sources/profiles')
+                file_path, _ = file_dialog.getOpenFileName(filter="JSON files (*.json)")
+
+                if file_path:
+                        try:
+                                with open(file_path, 'r') as file:
+                                        data = json.load(file)
+                                if isinstance(data, list) and data and 'key' in data[0] and data[0]['key'] == 'RestRobo':
+                                        self.lineEdit.setText(file_path)
+                                else:
+                                        QtWidgets.QMessageBox.warning(None, "Error", "The JSON is not in the expected format.")
+                        except json.JSONDecodeError:
+                                QtWidgets.QMessageBox.warning(None, "Error", "The selected file is not a valid JSON.")
+                        except Exception as e:
+                                QtWidgets.QMessageBox.warning(None, "Error", f"An error has occurred: {e}")
+                #Description
+                self.textBrowser
+                #
+                self.textBrowser_4
+
         #Record --> Browse files
         def selectFile(self):
                 file_dialog = QtWidgets.QFileDialog()
@@ -10,14 +36,19 @@ class Ui_Main(object):
                 if file_path:
                        self.iexecutable.setText(file_path)
 
-        #Record --> Boton Guardar
+        #Record --> Button Save
         def handle_save_button(self):
                 name = self.iname.text()
                 description = self.idescription.toPlainText()
                 executable = self.iexecutable.text()
+                res = control.record_steps(name, description, executable)
                 print('RECORD +')
                 print(f"Name: {name}, Description: {description}, Executable: {executable}")
-                print("Status: ", str(control.record_steps(name, description, executable)))
+                print("Status: ", str(res))
+                if res[0] != 5:
+                        QtWidgets.QMessageBox.warning(None, "Error", res[1])
+                if res[0] == 5:
+                        QtWidgets.QMessageBox.warning(None, "Saved", res[1])
                 print('________________________________________')
 
         def setupUi(self, Main):
@@ -265,6 +296,7 @@ class Ui_Main(object):
                                 #Name Input
                 self.lineEdit = QtWidgets.QLineEdit(parent=self.formLayoutWidget_2)
                 self.lineEdit.setObjectName("lineEdit")
+                self.lineEdit.setEnabled(False)
                 self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.lineEdit)
                                 #Description Label
                 self.description_2 = QtWidgets.QLabel(parent=self.formLayoutWidget_2)
@@ -285,6 +317,7 @@ class Ui_Main(object):
                 self.browse_2.setIcon(icon7)
                 self.browse_2.setObjectName("browse_2")
                 self.formLayout_2.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.browse_2)
+                self.browse_2.clicked.connect(self.selectFileSearch)
                                 #Description Content Box
                 self.textBrowser = QtWidgets.QTextBrowser(parent=self.formLayoutWidget_2)
                 self.textBrowser.setObjectName("textBrowser")
@@ -403,7 +436,7 @@ class Ui_Main(object):
                 
                 #Test
                         #Labels
-                self.name_2.setText(_translate("Main", "Name"))
+                self.name_2.setText(_translate("Main", "Filename"))
                 self.description_2.setText(_translate("Main", "Description"))
                 self.app.setText(_translate("Main", "Application"))
                         #Buttons
