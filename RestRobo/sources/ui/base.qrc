@@ -1,0 +1,29 @@
+<RCC>
+  <qresource prefix="header">
+    <file>github_git_icon_145985.png</file>
+    <file>bncnv.png</file>
+    <file>transparent bg , only logo without name.png</file>
+    <file>only logo without name.png</file>
+    <file>gr.png</file>
+    <file>file-add_114479.png</file>
+    <file>file-delete_114438.png</file>
+    <file>play_box_icon_138278.png</file>
+    <file>play-circle-filled-white_118779.png</file>
+    <file>play-button_icon-icons.com_65316.png</file>
+    <file>lupa2.png</file>
+    <file>lupa.png</file>
+    <file>save2.png</file>
+    <file>save.png</file>
+    <file>play.png</file>
+    <file>clock_icon-icons.com_54407.png</file>
+    <file>trafficlight-red_40428.png</file>
+    <file>pin_icon-icons.com_54378.png</file>
+    <file>player-record_114434.png</file>
+    <file>2D .png</file>
+    <file>settings.png</file>
+    <file>second transparent bg.png</file>
+    <file>!2.png</file>
+    <file>!1.png</file>
+    <file>!3.png</file>
+  </qresource>
+</RCC>
