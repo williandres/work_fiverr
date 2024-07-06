@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "Name": "Send message to Fiverr",
+        "Filename": "/home/willian/Repositories/work_fiverr/RestRobo/sources/profiles/Send message to Fiverr.json",
+        "App": "/bin/brave-browser",
+        "Hour": "06:17",
+        "Delay": "0"
+    }
+]
