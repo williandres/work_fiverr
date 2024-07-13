@@ -1,0 +1,1043 @@
+[
+    {
+        "key": "RestRobo",
+        "tittle": "Video Youtube",
+        "description": "Send a message",
+        "app": "/bin/brave-browser",
+        "creation date": "04/07/2024"
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "y",
+        "timestamp": 1720090418.0759025
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "y",
+        "timestamp": 1720090418.1831691
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "y",
+        "timestamp": 1720090418.1831691
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "o",
+        "timestamp": 1720090418.2277322
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "o",
+        "timestamp": 1720090418.3225927
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "o",
+        "timestamp": 1720090418.3225927
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "u",
+        "timestamp": 1720090418.552549
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "u",
+        "timestamp": 1720090418.6643941
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "u",
+        "timestamp": 1720090418.6643941
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "t",
+        "timestamp": 1720090418.762748
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "t",
+        "timestamp": 1720090418.8462715
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "t",
+        "timestamp": 1720090418.8462715
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "u",
+        "timestamp": 1720090418.9182615
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "u",
+        "timestamp": 1720090419.0091558
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "u",
+        "timestamp": 1720090419.0091558
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "b",
+        "timestamp": 1720090420.536457
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "e",
+        "timestamp": 1720090420.626609
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "b",
+        "timestamp": 1720090420.6760721
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "b",
+        "timestamp": 1720090420.6760721
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "e",
+        "timestamp": 1720090420.7474055
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "e",
+        "timestamp": 1720090420.7474055
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": ".",
+        "timestamp": 1720090421.0072236
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": ".",
+        "timestamp": 1720090421.0625937
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": ".",
+        "timestamp": 1720090421.0625937
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "c",
+        "timestamp": 1720090421.2475991
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "c",
+        "timestamp": 1720090421.3382058
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "c",
+        "timestamp": 1720090421.3382058
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "o",
+        "timestamp": 1720090421.3799524
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "o",
+        "timestamp": 1720090421.5164092
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "o",
+        "timestamp": 1720090421.5164092
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "m",
+        "timestamp": 1720090421.750133
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "m",
+        "timestamp": 1720090421.8951473
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "m",
+        "timestamp": 1720090421.8951473
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.enter",
+        "timestamp": 1720090422.980364
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.enter",
+        "timestamp": 1720090423.0502384
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.enter",
+        "timestamp": 1720090423.0502384
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            710,
+            160
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090446.5227206
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            710,
+            160
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090446.7186701
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090450.2160954
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090450.3207097
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090450.3207097
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "m",
+        "timestamp": 1720090450.5092096
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "m",
+        "timestamp": 1720090450.5970833
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "m",
+        "timestamp": 1720090450.5970833
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090450.608915
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090450.7395556
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090450.7395556
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "i",
+        "timestamp": 1720090450.819457
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090450.9186878
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090450.9186878
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "c",
+        "timestamp": 1720090451.004817
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "c",
+        "timestamp": 1720090451.11068
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "c",
+        "timestamp": 1720090451.11068
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "h",
+        "timestamp": 1720090451.273191
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "h",
+        "timestamp": 1720090451.3599365
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "h",
+        "timestamp": 1720090451.3599365
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "a",
+        "timestamp": 1720090453.0859153
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090453.1898768
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090453.1898768
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "e",
+        "timestamp": 1720090453.4678485
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "e",
+        "timestamp": 1720090453.5807533
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "e",
+        "timestamp": 1720090453.5807533
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "l",
+        "timestamp": 1720090453.747138
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "l",
+        "timestamp": 1720090453.869572
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "l",
+        "timestamp": 1720090453.869572
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.space",
+        "timestamp": 1720090453.9199865
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.space",
+        "timestamp": 1720090454.042615
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.space",
+        "timestamp": 1720090454.042615
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090454.0863307
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090454.2130718
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090454.2130718
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "j",
+        "timestamp": 1720090454.3310795
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090454.3883715
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "j",
+        "timestamp": 1720090454.4147778
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "j",
+        "timestamp": 1720090454.4147778
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090454.5238605
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.caps_lock",
+        "timestamp": 1720090454.5238605
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "a",
+        "timestamp": 1720090454.556396
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090454.6735446
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090454.6735446
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "c",
+        "timestamp": 1720090454.8323772
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "c",
+        "timestamp": 1720090454.910594
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "c",
+        "timestamp": 1720090454.910594
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "k",
+        "timestamp": 1720090455.0360637
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "k",
+        "timestamp": 1720090455.1378837
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "k",
+        "timestamp": 1720090455.1378837
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "s",
+        "timestamp": 1720090455.2540076
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "s",
+        "timestamp": 1720090455.353565
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "s",
+        "timestamp": 1720090455.353565
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "o",
+        "timestamp": 1720090455.4310005
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "o",
+        "timestamp": 1720090455.5350196
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "o",
+        "timestamp": 1720090455.5350196
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "n",
+        "timestamp": 1720090455.7556863
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "n",
+        "timestamp": 1720090455.8696775
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "n",
+        "timestamp": 1720090455.8696775
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.enter",
+        "timestamp": 1720090456.5897212
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.enter",
+        "timestamp": 1720090456.646671
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.enter",
+        "timestamp": 1720090456.646671
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            565,
+            555
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090465.6606212
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            565,
+            555
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090465.7726107
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            263,
+            41
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090480.0326924
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            263,
+            41
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090480.1653626
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            155,
+            45
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090483.5348036
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            155,
+            44
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090483.663744
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            284,
+            49
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090488.2117522
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            284,
+            49
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090488.3734946
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            224,
+            45
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090489.0398498
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            224,
+            45
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090489.180232
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "w",
+        "timestamp": 1720090492.646822
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "w",
+        "timestamp": 1720090492.7170286
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "w",
+        "timestamp": 1720090492.7170286
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "i",
+        "timestamp": 1720090492.8747916
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090492.9752464
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090492.9752464
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "k",
+        "timestamp": 1720090493.1290452
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "k",
+        "timestamp": 1720090493.2080665
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "k",
+        "timestamp": 1720090493.2080665
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "i",
+        "timestamp": 1720090493.350147
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090493.44648
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090493.44648
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "p",
+        "timestamp": 1720090493.635632
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "p",
+        "timestamp": 1720090493.7803183
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "p",
+        "timestamp": 1720090493.7803183
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "e",
+        "timestamp": 1720090494.0549164
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "e",
+        "timestamp": 1720090494.1780977
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "e",
+        "timestamp": 1720090494.1780977
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "d",
+        "timestamp": 1720090494.9497225
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "d",
+        "timestamp": 1720090495.0583806
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "d",
+        "timestamp": 1720090495.0583806
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "i",
+        "timestamp": 1720090495.140624
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090495.2789667
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090495.2789667
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "a",
+        "timestamp": 1720090495.3072157
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090495.4185982
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090495.4185982
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.enter",
+        "timestamp": 1720090496.497578
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.enter",
+        "timestamp": 1720090496.590854
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.enter",
+        "timestamp": 1720090496.590854
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            414,
+            187
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090499.8010132
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            414,
+            187
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090499.917812
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            414,
+            187
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090500.006735
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            414,
+            187
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090500.1299613
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "f",
+        "timestamp": 1720090501.3587449
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "f",
+        "timestamp": 1720090501.4453745
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "f",
+        "timestamp": 1720090501.4453745
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "i",
+        "timestamp": 1720090501.5082166
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090501.601659
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "i",
+        "timestamp": 1720090501.601659
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "n",
+        "timestamp": 1720090501.7558627
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "n",
+        "timestamp": 1720090501.8430066
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "n",
+        "timestamp": 1720090501.8430066
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "a",
+        "timestamp": 1720090501.9066763
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090502.0146604
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "a",
+        "timestamp": 1720090502.0146604
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "l",
+        "timestamp": 1720090502.3189008
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "l",
+        "timestamp": 1720090502.399686
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "l",
+        "timestamp": 1720090502.399686
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.esc",
+        "timestamp": 1720090505.3250477
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.esc",
+        "timestamp": 1720090505.4223173
+    }
+]

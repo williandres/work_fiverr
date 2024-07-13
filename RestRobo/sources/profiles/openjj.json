@@ -1,0 +1,21 @@
+[
+    {
+        "key": "RestRobo",
+        "tittle": "openjj",
+        "description": "",
+        "app": "/snap/obs-studio/1299/obs-portable",
+        "creation date": "04/07/2024"
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.esc",
+        "timestamp": 1720091134.593827
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.esc",
+        "timestamp": 1720091134.6691377
+    }
+]

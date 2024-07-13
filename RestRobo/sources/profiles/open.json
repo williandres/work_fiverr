@@ -1,0 +1,219 @@
+[
+    {
+        "key": "RestRobo",
+        "tittle": "open",
+        "description": "",
+        "app": "/snap/zoom-client/current/bin/launcher.sh",
+        "creation date": "04/07/2024"
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            1609,
+            16
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090906.6808121
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            1609,
+            16
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090906.8306215
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            839,
+            381
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090909.3792565
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            839,
+            381
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090909.550863
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            848,
+            388
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090910.186461
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            848,
+            388
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090910.3575456
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            915,
+            388
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090910.9056654
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            915,
+            388
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090911.0805855
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            835,
+            373
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090912.360999
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            835,
+            373
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090912.4956915
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            867,
+            386
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090912.6730504
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            867,
+            386
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090912.8408566
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            952,
+            232
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090913.3710084
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            1120,
+            213
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090913.9056253
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            1119,
+            375
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090914.5583563
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            1119,
+            375
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090914.7455306
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            1177,
+            366
+        ],
+        "button": "Button.left",
+        "pressed": true,
+        "timestamp": 1720090914.9789221
+    },
+    {
+        "type": "mouse",
+        "event": "click",
+        "position": [
+            1177,
+            366
+        ],
+        "button": "Button.left",
+        "pressed": false,
+        "timestamp": 1720090915.1645396
+    },
+    {
+        "type": "keyboard",
+        "event": "press",
+        "key": "Key.esc",
+        "timestamp": 1720090915.7621675
+    },
+    {
+        "type": "keyboard",
+        "event": "release",
+        "key": "Key.esc",
+        "timestamp": 1720090915.9593236
+    }
+]
