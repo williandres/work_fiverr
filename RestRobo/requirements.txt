@@ -1,6 +1,9 @@
 aiohttp==3.9.5
 aiosignal==1.3.1
+<<<<<<< HEAD
 altgraph==0.17.4
+=======
+>>>>>>> f05ab971f719b1edba9f94a4d9dd604890ff161a
 annotated-types==0.7.0
 anyio==4.4.0
 arrow==1.3.0
@@ -42,8 +45,11 @@ pydantic==2.7.4
 pydantic_core==2.18.4
 PyGetWindow==0.0.9
 Pygments==2.18.0
+<<<<<<< HEAD
 pyinstaller==6.8.0
 pyinstaller-hooks-contrib==2024.7
+=======
+>>>>>>> f05ab971f719b1edba9f94a4d9dd604890ff161a
 PyMsgBox==1.0.9
 pynput==1.7.7
 pyperclip==1.9.0
