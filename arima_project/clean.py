@@ -26,7 +26,7 @@ def compare_dataframes(df_raw, df_cleaned):
 # Funcion para elaborar un diagnostico sobre los archivos
 def comparison():
     # Ruta de las carpetas con los archivos CSV
-    raw_folder = 'sources' # CSV'S Originales
+    raw_folder = 'sources/raw' # CSV'S Originales
     cleaned_folder = 'sources/cleaned'# CSV'S Limpios
 
     # Listar archivos CSV en ambas carpetas
@@ -77,6 +77,7 @@ def clean_data(df):
 
     # Manejar outliers (valores atípicos) usando el principio estadístico del rango intercuartílico (IQR),
     # donde los valores menores que Q1 - 1.5*IQR y mayores que Q3 + 1.5*IQR son considerados atípicos.
+    # Esto con el fin de ajustar las variables exógenas para que puedan ser incorporadas en el modelo ARIMA
     for column in df.select_dtypes(include=[np.number]).columns:
         q1 = df[column].quantile(0.25)
         q3 = df[column].quantile(0.75)
@@ -122,7 +123,7 @@ def read_csv_with_different_delimiters(filepath):
 
 def main():
     # Ruta de la carpeta con los archivos CSV
-    input_folder = 'sources'
+    input_folder = 'sources/raw'
     output_folder = 'sources/cleaned'
 
     # Procesar cada archivo CSV en la carpeta 'input'
