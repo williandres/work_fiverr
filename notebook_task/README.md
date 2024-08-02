@@ -4,8 +4,6 @@
 
 ## Dataset
 
->
-
 **Steam Games from 2013 to 2023**
 
 - games.csv
